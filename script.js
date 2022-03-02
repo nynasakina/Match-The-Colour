@@ -188,7 +188,6 @@ button3.innerHTML = choices2[random];
 
 //////////////////////////////////////////////////////
 
-// day 2
 
 // Adding a scoreboard
 let points = 0;
@@ -212,13 +211,17 @@ function checkColour (e){
 
       const correctAns = e.currentTarget;
       correctAns.style.background = "green";
+      setTimeout(()=>{correctAns.style.background="black"},200);
+
 
 
 } else {
   const correctAns = e.currentTarget;
   correctAns.style.background = "red";
+  setTimeout(()=>{correctAns.style.background="black"},200);
+
 }
-// game();
+ game();
 }
 
 function showPoints() {
