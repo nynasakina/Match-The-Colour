@@ -313,8 +313,8 @@ span1.onclick = function() {
   modal.style.display = "none";
 }
 
-  // adding event to the GIVE UP button
-  let modalNextRound = document.getElementById("modalGiveUp");
+  // adding event to the NEXTROUND button
+  let modalNextRound = document.getElementById("modalNextRound");
   modalNextRound.onclick = function(){
     //insert code for round 2 function here;
   }
