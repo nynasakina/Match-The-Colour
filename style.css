@@ -1,0 +1,35 @@
+body {
+    background-image: url("https://i.makeagif.com/media/9-28-2018/8X2fz7.gif");
+    font-family: Ubuntu;
+    font-size: 25px;
+  }
+
+  div {
+    position:absolute;
+    left: 450px;
+    width: 350px;
+    border: 15px solid black;
+    background-color: aliceblue;
+    padding: 50px;
+    margin: 20px;
+  }
+  p{
+      font-family: Inconsolata;
+      font-size:15px;
+  }
+
+  .start-btn {
+    font-family: Ubuntu;
+    border: 2px;
+    border-radius: 50px;
+    background-color: darkgray;
+    padding: 14px 28px;
+    font-size: 20px;
+    cursor: pointer;
+    display: inline-block;
+  }
+  
+  /* On mouse-over */
+.start-btn:hover {background: #eee;
+  font-family: Ubuntu;
+} 

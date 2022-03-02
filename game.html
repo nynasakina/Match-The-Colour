@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  <style>
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        </style>
+    <link rel="stylesheet" href="gamestyle.css">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATCH THE COLOUR!</title>
+</head>
+
+<body>
+<div class="top-bar">
+
+    
+</div>
+<div class="time"><br>
+    <button id="playAgainButton">START!</button>
+</div>
+
+<div class="top-div">
+    <!-- this is where the randomWords appear -->
+<p></p>
+</div>
+
+
+<div class="row">
+<section class = "parent">
+<center>
+<section class = "child">
+    <!-- this is where the choices buttons appear -->
+    <button id="choiceBtn1" class="choiceBtn"></button>
+    <button id="choiceBtn2" class="choiceBtn"></button>  
+    <button id="choiceBtn3" class="choiceBtn"></button>
+</center>
+    </section>
+      </div>
+
+      <!-- Trigger/Open The Modal -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">X</span>
+    <p id="gameOverBtn"><img src="https://i.ibb.co/PhLfB59/Rocket-Emoji-large.png" width="30px"> GAME OVER <img src="https://i.ibb.co/PhLfB59/Rocket-Emoji-large.png" width="30px"></p>
+    <p id="gameOverMsg"></p>
+    <center>
+    <button id="modalPlayAgain" class="choiceBtn">PLAY AGAIN?</button>
+    <button id="modalGiveUp" class="choiceBtn">GIVE UP!</button>
+    </center>  
+  </div>
+
+</div>
+
+
+</div>
+</div>
+
+
+
+<script src="script.js" charset="utf-8"></script>
+
+</body>
+</html>
