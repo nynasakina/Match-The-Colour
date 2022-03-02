@@ -314,9 +314,9 @@ span1.onclick = function() {
 }
 
   // adding event to the GIVE UP button
-  let modalGiveUp = document.getElementById("modalGiveUp");
-  modalGiveUp.onclick = function(){
-    modal.style.display = "none";
+  let modalNextRound = document.getElementById("modalGiveUp");
+  modalNextRound.onclick = function(){
+    //insert code for round 2 function here;
   }
 
   // When the user clicks anywhere outside of the modal, close it
