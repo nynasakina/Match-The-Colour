@@ -31,7 +31,7 @@ document.querySelector("p").style.color = randomStyleColours
 const styleColorOfRandomWords = document.querySelector("p").style.color;
 
 // creating choice buttons for player to click
-const choices = ["hitam", "perang", "putih", "kuning", "merah jambu", "jingga", "biru", "hijau", "hijau", "merah", "ungu"]
+const choices = ["hitam", "perang", "putih", "kuning", "merah jambu", "jingga", "biru", "hijau", "merah", "ungu"]
 const choices2 = ["merah", "ungu", "hitam", "putih", "biru", "kuning", "hijau", "perang", "jingga", "merah jambu"]
 
 let correctWordAnswer = randomWords; // randomWords in MALAY
@@ -91,18 +91,222 @@ function showPoints() {
 function showPointsModal() {
   let gameOverMsg =  document.getElementById("gameOverMsg");
    gameOverMsg.innerHTML = "You've got " + points + " Points!";
+ 
 }
 
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-////////end of function////////////////////////////////////////////////////////////////////////////////
+////////end of gameRound1//////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function gameRound2(){
+  const colours = {
+    red: 'merah',
+    blue: 'biru',
+    pink: 'merah jambu',
+    purple:'ungu',
+    yellow:'kuning',
+    black:'hitam',
+    white:'putih',
+    green:'hijau',
+    brown:'perang',
+    orange:'jingga',
+  };
+  
+  const random = Math.floor(Math.random() * 10); //returns 0-9
+  const malayWords = Object.values(colours); //round 2 = changed from keys to values
+  const randomWords = malayWords[random];
+  randomWords.className = "random-words";       
+  
+  //append random words to div
+  const para = document.querySelector("p");     
+  para.textContent = randomWords;
+  
+  //random style.color for each word
+  const styleColours = ["black", "purple", "yellow", "orange", "pink", "white", "red", "blue", "green", "brown"];
+  const randomStyleColours = styleColours[random];
+  
+  // setting random style.color for every word in "p"
+  document.querySelector("p").style.color = randomStyleColours 
+  const styleColorOfRandomWords = document.querySelector("p").style.color;
+  
+  // creating choice buttons for player to click
+  const choices = ["black", "brown", "white", "yellow", "pink", "orange", "blue", "green", "red", "purple"]
+  const choices2 = ["red", "purple", "black", "white", "blue", "yellow", "green", "brown", "orange", "pink"]
+  
+  let correctWordAnswer = randomWords; // randomWords in MALAY
+  let correctChoiceAnswer = document.querySelector("p").style.color; //stylecolors  in EL
+   correctChoiceAnswerMalay = colours[correctChoiceAnswer];  //stylecolors in MALAY
+  
+  let choiceBtn = document.querySelectorAll('.choiceBtn'); //array of my choicBtn 
+  choiceBtn.forEach(function(value){
+    const random = Math.floor(Math.random() * 10);
+    const randomChoices =  choices[random]; // list of words in ml
+    const randomBtn = Math.floor(Math.random() * 3); // returns random integers btwn 0 and 2 //finding the index of correct answ
+    const button1 = document.getElementById("choiceBtn1");
+    const button2 = document.getElementById("choiceBtn2");
+    const button3 = document.getElementById("choiceBtn3");
+  
+   if ((choiceBtn[randomBtn]) === (choiceBtn)[0]){
+  button1.innerHTML = colours[correctChoiceAnswer];
+  button2.innerHTML = randomChoices;
+  button3.innerHTML = choices2[random];
+   } else if((choiceBtn[randomBtn]) === (choiceBtn)[1]){
+    button1.innerHTML = randomChoices;
+    button2.innerHTML = colours[correctChoiceAnswer];
+    button3.innerHTML = choices2[random];
+     } else if ((choiceBtn[randomBtn]) === (choiceBtn)[2]){
+      button1.innerHTML = randomChoices;
+      button2.innerHTML = choices2[random];
+      button3.innerHTML = colours[correctChoiceAnswer];  
+     }
+  });
+  
+  // checking for correct answer
+  
+  choiceBtn[0].addEventListener("click", checkColour);
+  choiceBtn[1].addEventListener("click", checkColour);
+  choiceBtn[2].addEventListener("click", checkColour);
+  
+  // function checkColour (e){
+  //   if(correctChoiceAnswerMalay === e.currentTarget.innerHTML ) {
+  //      points +=10;
+  //       showPoints();
+  
+  //       const correctAns = e.currentTarget;
+  //       correctAns.style.background = "green";
+  
+  
+  // } else {
+  //   const correctAns = e.currentTarget;
+  //   correctAns.style.background = "red";
+  // }
+  // game();
+  // }
+  
+  function showPoints() {
+    scoreboard.innerHTML = "Total Score: " + points + " Points";
+  }
+  
+  function showPointsModal() {
+    let gameOverMsg =  document.getElementById("gameOverMsg");
+     gameOverMsg.innerHTML = "You've got " + points + " Points!";
+
+   //create function to show  modal buttons Play AGain and Next Round
+   //create another function for timer
+
+  }
+  
+
+  
+  }
+  
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////////end of gameRound2 ()///////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+  function restartGame1(){
+    const colours = {
+      red: 'merah',
+      blue: 'biru',
+      pink: 'merah jambu',
+      purple:'ungu',
+      yellow:'kuning',
+      black:'hitam',
+      white:'putih',
+      green:'hijau',
+      brown:'perang',
+      orange:'jingga',
+    };
+    
+    const random = Math.floor(Math.random() * 10); //returns 0-9
+    //   console.log(Object.values(colours));       // Malay Words
+    const malayWords = Object.keys(colours);
+    const randomWords = malayWords[random];
+    randomWords.className = "random-words";       
+    
+    //append random words to div
+    const para = document.querySelector("p");     
+    para.textContent = randomWords;
+    
+    //random style.color for each word
+    const styleColours = ["black", "purple", "yellow", "orange", "pink", "white", "red", "blue", "green", "brown"];
+    const randomStyleColours = styleColours[random];
+    
+    // setting random style.color for every word in "p"
+    document.querySelector("p").style.color = randomStyleColours 
+    const styleColorOfRandomWords = document.querySelector("p").style.color;
+    
+    // creating choice buttons for player to click
+    const choices = ["hitam", "perang", "putih", "kuning", "merah jambu", "jingga", "biru", "hijau", "merah", "ungu"]
+    const choices2 = ["merah", "ungu", "hitam", "putih", "biru", "kuning", "hijau", "perang", "jingga", "merah jambu"]
+    
+    let correctWordAnswer = randomWords; // randomWords in MALAY
+    let correctChoiceAnswer = document.querySelector("p").style.color; //stylecolors  in EL
+     correctChoiceAnswerMalay = colours[correctChoiceAnswer];  //stylecolors in MALAY
+    
+    let choiceBtn = document.querySelectorAll('.choiceBtn'); //array of my choicBtn 
+    //by default all choice button is disabled
+document.getElementById("choiceBtn1").disabled = true; 
+document.getElementById("choiceBtn2").disabled = true;
+document.getElementById("choiceBtn3").disabled = true;
+
+    choiceBtn.forEach(function(value){
+      const random = Math.floor(Math.random() * 10);
+      const randomChoices =  choices[random]; // list of words in ml
+      const randomBtn = Math.floor(Math.random() * 3); // returns random integers btwn 0 and 2 //finding the index of correct answ
+      const button1 = document.getElementById("choiceBtn1");
+      const button2 = document.getElementById("choiceBtn2");
+      const button3 = document.getElementById("choiceBtn3");
+    
+     if ((choiceBtn[randomBtn]) === (choiceBtn)[0]){
+    button1.innerHTML = colours[correctChoiceAnswer];
+    button2.innerHTML = randomChoices;
+    button3.innerHTML = choices2[random];
+     } else if((choiceBtn[randomBtn]) === (choiceBtn)[1]){
+      button1.innerHTML = randomChoices;
+      button2.innerHTML = colours[correctChoiceAnswer];
+      button3.innerHTML = choices2[random];
+       } else if ((choiceBtn[randomBtn]) === (choiceBtn)[2]){
+        button1.innerHTML = randomChoices;
+        button2.innerHTML = choices2[random];
+        button3.innerHTML = colours[correctChoiceAnswer];  
+       }
+    });
+    
+    // checking for correct answer
+    
+    choiceBtn[0].addEventListener("click", checkColour);
+    choiceBtn[1].addEventListener("click", checkColour);
+    choiceBtn[2].addEventListener("click", checkColour);
+
+    
+    function showPoints() {
+      scoreboard.innerHTML = "Total Score: " + points + " Points";
+    }
+    
+    function showPointsModal() {
+      let gameOverMsg =  document.getElementById("gameOverMsg");
+       gameOverMsg.innerHTML = "You've got " + points + " Points!";
+    
+    }
+     ///// add timer
+
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////end of restartGame//////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //creating random words to appear
 const colours = {
@@ -128,7 +332,7 @@ randomWords.className = "random-words";        // console.log(randomWords);
 //append random words to div
 const para = document.querySelector("p");     // console.log(para);
 const img = document.createElement("img");
-para.textContent = "CLICK START";
+para.textContent = "CLICK START BUTTON!";
 
 //random style.color for each word
 const styleColours = ["black", "purple", "yellow", "orange", "pink", "white", "red", "blue", "green", "brown"];
@@ -138,7 +342,6 @@ const randomStyleColours = styleColours[random];
 // setting random style.color for every word in "p"
 document.querySelector("p").style.color = randomStyleColours 
 const styleColorOfRandomWords = document.querySelector("p").style.color;
-// console.log(styleColorOfRandomWords);
 
 
 //////////////////////////////////////////////////////
@@ -180,7 +383,7 @@ button3.innerHTML = choices2[random];
       button1.innerHTML = randomChoices;
       button2.innerHTML = choices2[random];
       button3.innerHTML = colours[correctChoiceAnswer];  
-     }
+     }});
 
 
     // CODES FOR 2 BUTTONS ONLY BELOW
@@ -189,15 +392,12 @@ button3.innerHTML = choices2[random];
 // const randomBtn = Math.floor(Math.random() * 2); // returns random integers btwn 0 and 1 //finding the index of correct answ
 // choiceBtn[randomBtn].innerHTML = choices[random];
 // choiceBtn[1-randomBtn].innerHTML = colours[correctChoiceAnswer]; //these are the "right answers" 1-randomBtn cos wrong+right ans = 1.
-///////////
 
-});
 
-//////////////////////////////////////////////////////
-
-//////////////////
-
+//////////////////////
+//////////////////////
 // ADDING A SCOREBOARD 
+//////////////////////
 
 let points = 0;
 
@@ -341,7 +541,8 @@ span1.onclick = function() {
   // adding event to the NEXTROUND button
   let modalNextRound = document.getElementById("modalNextRound");
   modalNextRound.onclick = function(){
-    //insert code for round 2 function here;
+    modal.style.display = "none";
+   gameRound2();
   }
 
 //  // adding event to the PLAY AGAIN button
@@ -349,7 +550,7 @@ span1.onclick = function() {
  console.log(modalPlayAgain);
  modalPlayAgain.onclick = function(){
   modal.style.display = "none";
- game();
+ restartGame1();
  }
   //////////////////////////////////////////////////////
 
