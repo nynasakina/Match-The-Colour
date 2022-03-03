@@ -36,7 +36,7 @@ const choices2 = ["merah", "ungu", "hitam", "putih", "biru", "kuning", "hijau", 
 
 let correctWordAnswer = randomWords; // randomWords in MALAY
 let correctChoiceAnswer = document.querySelector("p").style.color; //stylecolors  in EL
-let correctChoiceAnswerMalay = colours[correctChoiceAnswer];  //stylecolors in MALAY
+ correctChoiceAnswerMalay = colours[correctChoiceAnswer];  //stylecolors in MALAY
 
 let choiceBtn = document.querySelectorAll('.choiceBtn'); //array of my choicBtn 
 choiceBtn.forEach(function(value){
@@ -68,25 +68,31 @@ choiceBtn[0].addEventListener("click", checkColour);
 choiceBtn[1].addEventListener("click", checkColour);
 choiceBtn[2].addEventListener("click", checkColour);
 
-function checkColour (e){
-  if(correctChoiceAnswerMalay === e.currentTarget.innerHTML ) {
-     points +=10;
-      showPoints();
+// function checkColour (e){
+//   if(correctChoiceAnswerMalay === e.currentTarget.innerHTML ) {
+//      points +=10;
+//       showPoints();
 
-      const correctAns = e.currentTarget;
-      correctAns.style.background = "green";
+//       const correctAns = e.currentTarget;
+//       correctAns.style.background = "green";
 
 
-} else {
-  const correctAns = e.currentTarget;
-  correctAns.style.background = "red";
-}
-game();
-}
+// } else {
+//   const correctAns = e.currentTarget;
+//   correctAns.style.background = "red";
+// }
+// game();
+// }
 
 function showPoints() {
   scoreboard.innerHTML = "Total Score: " + points + " Points";
 }
+
+function showPointsModal() {
+  let gameOverMsg =  document.getElementById("gameOverMsg");
+   gameOverMsg.innerHTML = "You've got " + points + " Points!";
+}
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -121,7 +127,8 @@ randomWords.className = "random-words";        // console.log(randomWords);
 
 //append random words to div
 const para = document.querySelector("p");     // console.log(para);
-para.textContent = randomWords;
+const img = document.createElement("img");
+para.textContent = "CLICK START";
 
 //random style.color for each word
 const styleColours = ["black", "purple", "yellow", "orange", "pink", "white", "red", "blue", "green", "brown"];
@@ -188,8 +195,10 @@ button3.innerHTML = choices2[random];
 
 //////////////////////////////////////////////////////
 
+//////////////////
 
-// Adding a scoreboard
+// ADDING A SCOREBOARD 
+
 let points = 0;
 
 const scoreboard = document.createElement("div");
@@ -228,11 +237,19 @@ function showPoints() {
   scoreboard.innerHTML = "Total Score: " + points + " Points";
 
 }
-console.log(points);
+
+function showPointsModal() {
+  let gameOverMsg =  document.getElementById("gameOverMsg");
+   gameOverMsg.innerHTML = "You've got " + points + " Points!";
+}
 
 
 
-// adding a timer
+//////////////////
+// ADDING A TIMER
+//////////////////
+
+
 const time= document.getElementsByClassName("time"); // console.log(time);
 const span = document.createElement("span")
 span.setAttribute("id", "timer");
@@ -246,7 +263,7 @@ playAgainButton.addEventListener("click", game);
 
 
 let timer; 
-let timeLeft = 15; // seconds
+let timeLeft = 4; // seconds
 
 
 // What to do when the timer runs out
@@ -287,14 +304,14 @@ playAgainButton.style.visibility = 'hidden';
 
 }
 
-//////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
 
-// Getting a Modal after GAME OVER
+// Getting a Modal after TIME'S UP (GAME OVER)
 
 
-// Write scores on modal
-let gameOverMsg =  document.getElementById("gameOverMsg");
-gameOverMsg.innerHTML = `Your Score Is ${points} Points!`;
+// // Write scores on modal
+// let gameOverMsg =  document.getElementById("gameOverMsg");
+// gameOverMsg.innerHTML = `Your Score Is ${points} Points!`;
 
 // Get the modal
 let modal = document.getElementById("myModal");
@@ -306,9 +323,14 @@ let btn = document.getElementById("myBtn");
 let span1 = document.getElementsByClassName("close")[0]; //without the [0] it's an array -_-
 //console.log(span1);
 
+
 // When the user clicks on the button, open the modal
 function openModal(){
-  modal.style.display = "block"; console.log("modal Open");
+  modal.style.display = "block";
+  showPointsModal();
+//
+
+
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -322,18 +344,13 @@ span1.onclick = function() {
     //insert code for round 2 function here;
   }
 
-  // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-  
-//   }}
-
- // adding event to the PLAY AGAIN button
-//  let modalPlayAgain = document.getElementById("modalPlayAgain");
-//  modalPlayAgain.onclick = function(){
-//  game();
-//  }
+//  // adding event to the PLAY AGAIN button
+ let modalPlayAgain = document.getElementById("modalPlayAgain");
+ console.log(modalPlayAgain);
+ modalPlayAgain.onclick = function(){
+  modal.style.display = "none";
+ game();
+ }
   //////////////////////////////////////////////////////
 
 

@@ -5,6 +5,9 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+span {
+    font-size: 50px;
+}
 .top-bar{
     background-color: aliceblue;
     height:20px;
@@ -26,8 +29,8 @@ body {
 .top-div{
     position: relative;
     margin:10px;
-    top:110px;
-    left: 430px;
+    top:120px;
+    left: 395px;
     width: 500px;
     border: 15px solid lavender;
     border-radius: 50px;
@@ -84,15 +87,12 @@ color: black;
 font-family: Comfortaa;
 border: 2px solid lavender;
 border-radius: 10px;
-font-size: 40px;
+font-size: 35px;
 cursor: pointer;
 display: inline-block;
 
 }
 
-#gameOverBtn{
-    font-family: Press Start 2P;
-}
 
 /* The Modal (background) */
 .modal {
