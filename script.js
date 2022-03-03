@@ -68,21 +68,6 @@ choiceBtn[0].addEventListener("click", checkColour);
 choiceBtn[1].addEventListener("click", checkColour);
 choiceBtn[2].addEventListener("click", checkColour);
 
-// function checkColour (e){
-//   if(correctChoiceAnswerMalay === e.currentTarget.innerHTML ) {
-//      points +=10;
-//       showPoints();
-
-//       const correctAns = e.currentTarget;
-//       correctAns.style.background = "green";
-
-
-// } else {
-//   const correctAns = e.currentTarget;
-//   correctAns.style.background = "red";
-// }
-// game();
-// }
 
 function showPoints() {
   scoreboard.innerHTML = "Total Score: " + points + " Points";
@@ -104,6 +89,10 @@ function showPointsModal() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function gameRound2(){
+  let roundType = 2;
+points = 0
+showPoints();
+
   const colours = {
     red: 'merah',
     blue: 'biru',
@@ -172,21 +161,6 @@ function gameRound2(){
   choiceBtn[1].addEventListener("click", checkColour);
   choiceBtn[2].addEventListener("click", checkColour);
   
-  // function checkColour (e){
-  //   if(correctChoiceAnswerMalay === e.currentTarget.innerHTML ) {
-  //      points +=10;
-  //       showPoints();
-  
-  //       const correctAns = e.currentTarget;
-  //       correctAns.style.background = "green";
-  
-  
-  // } else {
-  //   const correctAns = e.currentTarget;
-  //   correctAns.style.background = "red";
-  // }
-  // game();
-  // }
   
   function showPoints() {
     scoreboard.innerHTML = "Total Score: " + points + " Points";
@@ -196,12 +170,8 @@ function gameRound2(){
     let gameOverMsg =  document.getElementById("gameOverMsg");
      gameOverMsg.innerHTML = "You've got " + points + " Points!";
 
-   //create function to show  modal buttons Play AGain and Next Round
-   //create another function for timer
-
   }
-  
-
+// add timer here
   
   }
   
@@ -214,6 +184,11 @@ function gameRound2(){
 
 
   function restartGame1(){
+    
+    let roundType = 1;
+    points = 0;
+    showPoints();
+
     const colours = {
       red: 'merah',
       blue: 'biru',
@@ -292,15 +267,17 @@ document.getElementById("choiceBtn3").disabled = true;
     function showPoints() {
       scoreboard.innerHTML = "Total Score: " + points + " Points";
     }
+    console.log(points);
     
     function showPointsModal() {
       let gameOverMsg =  document.getElementById("gameOverMsg");
        gameOverMsg.innerHTML = "You've got " + points + " Points!";
-    
+    }
     }
      ///// add timer
+     //// restart points
+     
 
-    }
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -309,6 +286,7 @@ document.getElementById("choiceBtn3").disabled = true;
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //creating random words to appear
+
 const colours = {
     red: 'merah',
     blue: 'biru',
@@ -430,7 +408,15 @@ function checkColour (e){
   setTimeout(()=>{correctAns.style.background="black"},200);
 
 }
- game();
+
+game();
+// if(roundType = 1){
+//   restartGame1();
+// } else{
+//   gameRound2();
+// }
+
+
 }
 
 function showPoints() {
@@ -499,7 +485,6 @@ document.getElementById("choiceBtn3").disabled = false;
   updateTimer();
   
   // so hide the button after clicking start
-// playAgainButton.hide();
 playAgainButton.style.visibility = 'hidden';
 
 }
@@ -507,11 +492,6 @@ playAgainButton.style.visibility = 'hidden';
 ////////////////////////////////////////////////////////////////////
 
 // Getting a Modal after TIME'S UP (GAME OVER)
-
-
-// // Write scores on modal
-// let gameOverMsg =  document.getElementById("gameOverMsg");
-// gameOverMsg.innerHTML = `Your Score Is ${points} Points!`;
 
 // Get the modal
 let modal = document.getElementById("myModal");
@@ -547,10 +527,10 @@ span1.onclick = function() {
 
 //  // adding event to the PLAY AGAIN button
  let modalPlayAgain = document.getElementById("modalPlayAgain");
- console.log(modalPlayAgain);
  modalPlayAgain.onclick = function(){
   modal.style.display = "none";
- restartGame1();
+restartGame1();
+ 
  }
   //////////////////////////////////////////////////////
 
