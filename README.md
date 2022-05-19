@@ -1,5 +1,7 @@
 
 # 🎨  Match the Colour
+[Click To Play!](https://match-the-colour.netlify.app/)
+
 Developed for my Project 1 at General Assembly Software Engineering Immersive, <b>Match The Colour</b> was inspired by a game I used to play with my students when I was teaching prior to my time in this course. Back then, I would use PowerPoint slides to display a colour word with a text colour that does not match the colour word. To earn the correct point, students will have to say out the colour of the word, instead of reading the word. For example, the word is "Pink" but it has blue as its font colour, thus, the correct answer is Blue.
 
 ## How to play
